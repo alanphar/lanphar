@@ -1,4 +1,4 @@
-# Andrew Lanphar
+# Andrew Lanphar's Github Repo
 
 This is Andrew Lanphar's public repo meant to share code developed by me.
 
