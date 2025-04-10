@@ -1,4 +1,8 @@
-"""Merge sort uses recursion to improve time to O(nlogn)."""
+"""Merge sort uses recursion to improve time to O(nlogn).
+
+Uses divide and conquer approach. The divide part takes O(log n)
+While merging them back together takes O(n)
+"""
 
 
 def merge_array_element1(target_array, array):
