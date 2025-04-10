@@ -1,3 +1,5 @@
+"""This is my answer to Meta's Software Engineer, Product Preparation plan Coding exercise Passing Yearbooks."""
+
 def findSignatureCounts(arr):
    students = list(range(1, len(arr) + 1))
    signature_counts = [1] * len(arr)
