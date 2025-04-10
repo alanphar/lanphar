@@ -1,3 +1,5 @@
+"""This is my answer to Meta's Software Engineer, Product Preparation plan Coding exercise Contiguous Subarrays."""
+
 def count_subarrays(arr):
   subarrays = [1] * len(arr)
   
