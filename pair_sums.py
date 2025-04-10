@@ -1,3 +1,9 @@
+"""These are my answers to Meta's Software Engineer, Product Preparation plan Coding exercise Pair sums.
+
+First function - Brute force way, i think it is O(n^2).
+Second function - Leverages hash/dict way, where O(n) memory is used to reduce time to O(n + k).
+"""
+
 def numberOfWays(arr, k):
   """Brute force way, i think it is O(n^2)."""
   number_of_ways = 0
