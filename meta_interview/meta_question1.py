@@ -31,14 +31,14 @@ def find_last_good_version(versions):
         pointer = (right_pointer + left_pointer) // 2
 
         if is_good_version(versions[pointer]):
-            if pointer + 1 == len(versions):            # last version check (right bounds check)
+            if pointer + 1 == len(versions):                    # last version check (right bounds check)
                 return pointer
-            elif not is_good_version(versions[pointer + 1]):
+            elif not is_good_version(versions[pointer + 1]):    # last good version check
                 return pointer
             left_pointer = pointer + 1
-        elif pointer - 1 < 0:                           # pointer left bounds check
+        elif pointer - 1 < 0:                                   # pointer left bounds check
             return -1
-        elif is_good_version(versions[pointer - 1]):
+        elif is_good_version(versions[pointer - 1]):            # if current version is bad, is left closest good?
             return pointer - 1
         else:
             right_pointer = pointer - 2
