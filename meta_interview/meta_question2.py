@@ -14,7 +14,7 @@ So then I mentioned to the interviewer my idea to leverage a heap. However, I st
 all items had been popped from heap after one top25 call.
 
 """
-
+from operator import gettatter
 
 class MetaReddit:
     threads = dict()
