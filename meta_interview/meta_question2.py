@@ -21,7 +21,7 @@ Post interview I decided to go with my original thought using a dictionary:
 I added a update attribute so that if repeated Top25 is called without new threads or upvotes,
 Top25 would return in O(1) while using O(25) additional space
 
-If Top25 needed to be faster than N log N I would then implement a Binary Search Tree
+If Top25 needed to be faster than N log N I would then implement a AVL or red black self balancing Binary Search Tree
     slowing down creating and inserting to O(log N) balanced and O(N) worst
 """
 from operator import itemgetter
