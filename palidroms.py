@@ -27,7 +27,7 @@ def get_pali_length(s, left, right):
     return pali
 
 
-def longestPalindrome(s: str) -> str:
+def longest_palindrome(s: str) -> str:
     if len(s) == 1:
         return s
 
@@ -44,4 +44,4 @@ def longestPalindrome(s: str) -> str:
         if len(even) > len(longest):
             longest = even
 
-        return longest
+    return longest
