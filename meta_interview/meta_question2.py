@@ -21,9 +21,15 @@ Post interview I decided to go with my original thought using a dictionary:
 I added a update attribute so that if repeated Top25 is called without new threads or upvotes,
 Top25 would return in O(1) while using O(25) additional space
 
-If Top25 needed to be faster than N log N I would then implement a AVL or red black self balancing Binary Search Tree
-    slowing down creating and inserting to O(log N) balanced and O(N) worst
+Then after further studying, I found that using a heap to heapify is O(N) if data already exists,
+thus I developed TopK method to improve time complexity at the cost of additional O(N) space.
+
+If Top25 or TopK needed to be faster than O(N) I would then implement an AVL or red black self balancing
+Binary Search Tree slowing down creating and inserting to O(log N) balanced and O(N) worst
+to get O(log N) for Top25
 """
+import heapq
+import time
 from operator import itemgetter
 
 
@@ -49,10 +55,17 @@ class MetaReddit:
             self.updated = False
             return self.top_25
 
+    def topK(self, k):
+        """While this uses O(N) space complexity, it reduces time to sort to O(N) using a heap."""
+        heap = list(self.threads.items())
+        heapq.heapify(heap)
+        return heapq.nlargest(k, heap, key=itemgetter(1))
+
+
 # The Test
 my_class = MetaReddit()
 
-for x in range(100):
+for x in range(10000):
     my_class.create_thread(threadID=x)
 
 
@@ -65,4 +78,19 @@ for x in range(0, 100, 4):
     for _ in range(limit):
         my_class.upvote_thread(threadID=x)
 
+
+start_time = time.perf_counter()
 print(my_class.top25())
+end_time = time.perf_counter()
+sorted_elapsed_time = end_time - start_time
+print(f"Sorted elapsed time: {sorted_elapsed_time:.5f} seconds")
+
+print("now this should be faster")
+
+start_time = time.perf_counter()
+print(my_class.topK(25))
+end_time = time.perf_counter()
+heapify_elapsed_time = end_time - start_time
+print(f"Heapify elapsed time: {heapify_elapsed_time:.5f} seconds")
+assert heapify_elapsed_time < sorted_elapsed_time
+print("it is faster")
