@@ -1,4 +1,7 @@
-"""Heap practice."""
+"""Heap practice.
+
+Below is an implementation of min heap using python list
+"""
 
 
 def heapify(array):
@@ -28,3 +31,24 @@ def shift_down(index, array):
         
         index = smallest_index
                
+
+def insert(array, item):
+   array.append(item)
+   shift_up(len(array)-1, array)
+
+def shift_up(index, array):
+   while True:
+      parent = (index - 1) // 2
+
+      if index > 0 and array[parent] > array[index]:
+         array[parent], array[index] = array[index], array[parent]
+         index = parent
+      else:
+         break
+
+def delete(array):
+   top = array[0]
+   array[0] = array.pop()
+   shift_down(0, array)
+   return top
+      
